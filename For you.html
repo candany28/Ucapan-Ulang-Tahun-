@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun, Mama Tersayang! ✨</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Serif Elegan) & Plus Jakarta Sans (Sans-serif Lembut) & Dancing Script (Tulisan Tangan) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FFF9F5',
+                        blush: '#FCE4EC',
+                        softpink: '#F8BBD0',
+                        rosegold: '#B76E79',
+                        rosegoldDark: '#96535E',
+                        champagne: '#F3E5AB',
+                        goldAccent: '#D4AF37',
+                        cocoa: '#4A3538',
+                        mutedCocoa: '#7A5C61'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        script: ['"Dancing Script"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Kustomisasi Gaya & Animasi */
+        body {
+            background: linear-gradient(135deg, #FFF9F5 0%, #FCE4EC 50%, #FFF5EE 100%);
+            color: #4A3538;
+            overflow-x: hidden;
+        }
+
+        /* Animasi Melayang Kelopak Bunga & Kilau */
+        @keyframes floatPetal {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) translateX(0px);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.8;
+            }
+            85% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg) translateX(40px);
+                opacity: 0;
+            }
+        }
+
+        .petal {
+            position: fixed;
+            top: -10%;
+            pointer-events: none;
+            z-index: 5;
+            animation: floatPetal linear infinite;
+        }
+
+        /* Animasi Api Lilin Realistis */
+        @keyframes flicker {
+            0%, 100% {
+                transform: scale(1) rotate(-2deg);
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            }
+            25% {
+                transform: scale(1.06, 0.96) rotate(2deg);
+            }
+            50% {
+                transform: scale(0.95, 1.05) rotate(-1deg);
+            }
+            75% {
+                transform: scale(1.04, 0.98) rotate(3deg);
+            }
+        }
+
+        .candle-flame {
+            background: radial-gradient(circle at 50% 80%, #FFF9C4 10%, #FFD54F 45%, #FF8F00 85%, rgba(255, 87, 34, 0.4) 100%);
+            box-shadow: 0 0 15px #FFD54F, 0 0 30px #FF8F00, 0 0 45px rgba(255, 143, 0, 0.6);
+            animation: flicker 1.2s infinite ease-in-out;
+            transform-origin: bottom center;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .candle-flame.out {
+            opacity: 0;
+            transform: scale(0) translateY(-10px);
+            pointer-events: none;
+        }
+
+        /* Animasi Asap Lilin Setelah Padam */
+        @keyframes smokeRise {
+            0% {
+                opacity: 0.8;
+                transform: translateY(0) scale(0.6);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(-25px) translateX(8px) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-55px) translateX(-6px) scale(1.8);
+            }
+        }
+
+        .smoke-puff {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: radial-gradient(circle, rgba(200,200,200,0.8) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: smokeRise 2s ease-out forwards;
+        }
+
+        /* Animasi Detak Hati / Pulse Lembut */
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+        .animate-gentle-pulse {
+            animation: gentlePulse 3s infinite ease-in-out;
+        }
+
+        /* Efek Kartu Flip 3D untuk Galeri Harapan */
+        .flip-card {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1.5rem;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Tekstur Kertas Surat Mewah */
+        .letter-paper {
+            background-color: #FFFDF9;
+            background-image: 
+                radial-gradient(#E8D5D8 0.75px, transparent 0.75px),
+                linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(252,228,236,0.2));
+            background-size: 24px 24px, 100% 100%;
+            box-shadow: 0 20px 50px -12px rgba(183, 110, 121, 0.25);
+        }
+
+        /* Animasi Amplop Terbuka */
+        .envelope-flap {
+            transform-origin: top;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .envelope-open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+
+        /* Glassmorphism Card */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 35px rgba(183, 110, 121, 0.12);
+        }
+
+        /* Animasi Getar Halus Saat Sandi Salah */
+        @keyframes gentleShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+        .animate-shake {
+            animation: gentleShake 0.45s ease-in-out;
+        }
+
+        /* Transisi Antar Halaman Bertahap */
+        @keyframes pageFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(14px) scale(0.99);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .page-transition {
+            animation: pageFadeIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen relative selection:bg-softpink selection:text-cocoa">
+
+    <!-- Canvas Kembang Api Layar Penuh (Latar Belakang / Overlay Perayaan) -->
+    <canvas id="fireworksCanvas" class="fixed inset-0 pointer-events-none z-30"></canvas>
+
+    <!-- Wadah Kelopak Bunga Melayang -->
+    <div id="petalsContainer" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
+
+    <!-- ===================================================================== -->
+    <!-- LAYAR KUNCI SANDI RAHASIA (PW: 26111970)                              -->
+    <!-- ===================================================================== -->
+    <div id="passwordOverlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gradient-to-br from-[#FFF5EE] via-[#FCE4EC] to-[#FFF9F5] transition-all duration-700">
+        <div id="passwordCard" class="glass-panel max-w-md w-full rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden border-2 border-white shadow-2xl">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-tr from-blush to-champagne flex items-center justify-center text-3xl shadow-inner border border-white">
+                🔐
+            </div>
+            <span class="text-xs uppercase tracking-[0.2em] font-semibold text-rosegold block mb-1">
+                26 November 2026
+            </span>
+            <h1 class="font-serif text-2xl sm:text-3xl font-bold text-cocoa mb-2">
+                Kejutan Terkunci
+            </h1>
+            <p class="text-sm text-mutedCocoa mb-6 leading-relaxed">
+                Masukkan kode rahasia ulang tahun Mama untuk membuka kejutan spesial ini ✨
+            </p>
+
+            <form id="passwordForm" class="space-y-4">
+                <div class="relative">
+                    <input
+                        id="secretPasswordInput"
+                        type="password"
+                        inputmode="numeric"
+                        maxlength="8"
+                        placeholder="••••••••"
+                        autocomplete="off"
+                        class="w-full text-center tracking-[0.4em] text-xl sm:text-2xl font-bold py-3.5 px-12 rounded-2xl bg-white/90 border-2 border-softpink text-cocoa placeholder:text-rosegold/40 focus:outline-none focus:border-rosegold transition-all shadow-inner"
+                    />
+                    <button
+                        type="button"
+                        id="togglePasswordVisibility"
+                        class="absolute right-3.5 top-1/2 -translate-y-1/2 text-lg text-mutedCocoa hover:text-rosegold transition-colors p-1"
+                        title="Lihat / Sembunyikan Sandi"
+                    >
+                        👁️
+                    </button>
+                </div>
+
+                <p id="passwordErrorMsg" class="hidden text-xs font-semibold text-rose-600 bg-rose-50 border border-rose-200 rounded-xl py-2 px-3">
+                    Ups, kode sandinya belum tepat nih. Coba ingat tanggal lahir Mama (DDMMYYYY) ya! 🌷
+                </p>
+
+                <button
+                    type="submit"
+                    class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-rosegold to-[#D4838F] hover:from-rosegoldDark hover:to-rosegold text-white font-semibold text-base shadow-lg shadow-rosegold/25 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+                >
+                    Buka Kejutan 💖
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- LAYAR PEMBUKA (AMPLOP KEJUTAN)                                        -->
+    <!-- ===================================================================== -->
+    <div id="introOverlay" class="fixed inset-0 z-40 flex items-center justify-center p-4 bg-gradient-to-br from-[#FFF9F5] via-[#FCE4EC] to-[#FFF5EE] opacity-0 pointer-events-none transition-all duration-700">
+        <div class="glass-panel max-w-md w-full rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden border-2 border-white shadow-2xl">
+            <div class="w-20 h-20 mx-auto mb-5 rounded-full bg-gradient-to-tr from-blush to-champagne flex items-center justify-center text-4xl shadow-inner animate-gentle-pulse">
+                👑
+            </div>
+            <span class="inline-block px-3.5 py-1 rounded-full bg-blush/80 text-rosegoldDark text-xs font-semibold tracking-wider uppercase mb-3">
+                Undangan Istimewa
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cocoa mb-3 leading-tight">
+                Untuk Mama Tercinta
+            </h2>
+            <p class="text-sm sm:text-base text-mutedCocoa mb-7 leading-relaxed">
+                Ada sebuah kue manis, lilin harapan, dan sepucuk surat cinta yang sudah disiapkan khusus untuk hari bahagia Mama.
+            </p>
+            <button
+                id="openSurpriseBtn"
+                class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-rosegold to-[#D4838F] hover:from-rosegoldDark hover:to-rosegold text-white font-semibold text-base shadow-lg shadow-rosegold/30 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+            >
+                Buka Kejutan Spesial 🎁✨
+            </button>
+        </div>
+    </div>
+
+    <!-- Tombol Kontrol Audio Mengambang (Pojok Kanan Atas) -->
+    <div id="audioControlWrapper" class="fixed top-4 right-4 z-50 hidden">
+        <button id="toggleAudioBtn" class="glass-panel px-4 py-2.5 rounded-full flex items-center gap-2 text-sm font-medium text-rosegoldDark hover:bg-white transition-all shadow-md active:scale-95" title="Putar / Hentikan Musik">
+            <span id="audioIcon" class="text-lg">🎵</span>
+            <span id="audioLabel" class="hidden sm:inline">Musik Menyala</span>
+        </button>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- KONTEN UTAMA WEBSITE (BERBENTUK HALAMAN BERTAHAP / STEP-BY-STEP)     -->
+    <!-- ===================================================================== -->
+    <main id="mainContent" class="relative z-20 opacity-0 transition-opacity duration-1000 min-h-screen flex flex-col justify-between py-6 sm:py-10">
+        
+        <!-- Bilah Navigasi Indikator Halaman (Stepper) -->
+        <nav id="pageStepper" class="max-w-xl w-full mx-auto px-4 pt-2 pb-4">
+            <div class="glass-panel rounded-full px-4 py-2.5 flex items-center justify-between gap-2 shadow-sm">
+                <button type="button" data-goto="1" class="step-pill flex-1 py-1.5 px-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-rosegold text-white shadow-xs">
+                    1. Ucapan 🌸
+                </button>
+                <button type="button" data-goto="2" class="step-pill flex-1 py-1.5 px-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all text-mutedCocoa hover:text-rosegoldDark">
+                    2. Kue & Lilin 🎂
+                </button>
+                <button type="button" data-goto="3" class="step-pill flex-1 py-1.5 px-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all text-mutedCocoa hover:text-rosegoldDark">
+                    3. Surat Cinta 💌
+                </button>
+                <button type="button" data-goto="4" class="step-pill flex-1 py-1.5 px-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all text-mutedCocoa hover:text-rosegoldDark">
+                    4. Gelar Mama 🏆
+                </button>
+            </div>
+        </nav>
+
+        <!-- Wadah Halaman Aktif -->
+        <div class="flex-1 flex items-center justify-center w-full">
+
+            <!-- ============================================================= -->
+            <!-- HALAMAN 1: SAMBUTAN UTAMA ULANG TAHUN MAMA                    -->
+            <!-- ============================================================= -->
+            <section id="page-1" class="wizard-page page-transition px-4 py-6 max-w-2xl w-full mx-auto text-center">
+                <div class="glass-panel rounded-3xl p-8 sm:p-12 relative overflow-hidden border-2 border-white">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-white/90 border border-softpink text-rosegold text-xs sm:text-sm font-semibold tracking-wider uppercase mb-5 shadow-xs">
+                        🌸 26 November 2026 • Hari Istimewa Mama 🌸
+                    </div>
+                    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-cocoa leading-tight mb-5">
+                        Selamat Ulang Tahun, <span class="text-rosegold italic">Mama!</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-mutedCocoa max-w-xl mx-auto leading-relaxed mb-8">
+                        Terima kasih telah menjadi pelita, pelukan terhangat, dan cinta pertama yang tak pernah pudar. Semoga hari ini dipenuhi senyuman termanis Mama!
+                    </p>
+                    <button type="button" data-goto="2" class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-rosegold to-[#D4838F] hover:from-rosegoldDark hover:to-rosegold text-white font-semibold text-sm sm:text-base shadow-lg shadow-rosegold/25 transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer">
+                        <span>Lanjut ke Kue Ulang Tahun 🎂</span>
+                        <span>→</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ============================================================= -->
+            <!-- HALAMAN 2: SESI KUE ULANG TAHUN & TIUP LILIN INTERAKTIF       -->
+            <!-- ============================================================= -->
+            <section id="page-2" class="wizard-page hidden page-transition px-4 py-4 max-w-2xl w-full mx-auto">
+                <div class="glass-panel rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden">
+                    
+                    <!-- Status & Instruksi Lucu -->
+                    <div id="cakeInstructionBox" class="mb-5 transition-all duration-500">
+                        <span class="inline-block text-2xl mb-1">🎂✨</span>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-cocoa mb-2">
+                            Waktunya Make a Wish, Ma!
+                        </h2>
+                        <p id="cakeSubInstruction" class="text-sm sm:text-base text-mutedCocoa">
+                            Pejamkan mata sejenak, panjatkan doa terbaik Mama, lalu <strong>klik api lilinnya</strong> atau <strong>tiup ke mikrofon HP/laptop</strong>!
+                        </p>
+                    </div>
+
+                    <!-- Tombol Kontrol Mikrofon Opsional & Tombol Bantu -->
+                    <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
+                        <button id="micBlowBtn" class="px-4 py-2 rounded-full bg-blush hover:bg-softpink/60 text-rosegoldDark text-xs sm:text-sm font-semibold border border-rosegold/30 transition-all flex items-center gap-2 shadow-sm active:scale-95">
+                            <span id="micIcon">🎙️</span>
+                            <span id="micBtnText">Aktifkan Tiup via Mikrofon</span>
+                        </button>
+                        <button id="relightBtn" class="hidden px-4 py-2 rounded-full bg-white hover:bg-cream text-rosegoldDark text-xs sm:text-sm font-semibold border border-rosegold/30 transition-all flex items-center gap-2 shadow-sm active:scale-95">
+                            <span>🔥</span>
+                            <span>Nyalakan Lilin Lagi</span>
+                        </button>
+                    </div>
+
+                    <!-- Visualisasi Indikator Suara Tiupan Mikrofon -->
+                    <div id="micMeterContainer" class="hidden max-w-xs mx-auto mb-5">
+                        <div class="flex justify-between text-xs text-mutedCocoa mb-1">
+                            <span>Kekuatan Tiupan Mama:</span>
+                            <span id="micStatusText" class="font-semibold text-rosegold">Tiuuup yang kencang! 🌬️</span>
+                        </div>
+                        <div class="w-full h-3 bg-white rounded-full overflow-hidden border border-softpink p-0.5">
+                            <div id="micLevelBar" class="h-full bg-gradient-to-r from-softpink to-rosegold rounded-full transition-all duration-75" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- ILUSTRASI KUE ULANG TAHUN BERTINGKAT CANTIK & MENGEMASKAN -->
+                    <div class="relative pt-12 pb-4 flex flex-col items-center justify-center select-none">
+                        
+                        <!-- Wadah 3 Lilin Cantik -->
+                        <div class="flex items-end justify-center gap-6 sm:gap-8 relative z-20 -mb-2">
+                            <!-- Lilin 1 -->
+                            <div class="candle-unit flex flex-col items-center cursor-pointer group" data-candle="0" title="Klik untuk meniup lilin!">
+                                <div class="relative flex items-center justify-center h-10 w-8">
+                                    <div class="candle-flame w-4 h-7 rounded-full"></div>
+                                    <div class="smoke-anchor absolute bottom-1"></div>
+                                </div>
+                                <div class="w-0.5 h-2 bg-cocoa"></div>
+                                <div class="w-3.5 h-12 rounded-t-sm bg-gradient-to-b from-white via-blush to-softpink border border-rosegold/30 shadow-sm relative overflow-hidden">
+                                    <div class="w-full h-2 bg-rosegold/40 mt-2 -rotate-12"></div>
+                                    <div class="w-full h-2 bg-rosegold/40 mt-3 -rotate-12"></div>
+                                </div>
+                            </div>
+
+                            <!-- Lilin 2 (Tengah - Lebih Tinggi) -->
+                            <div class="candle-unit flex flex-col items-center cursor-pointer group" data-candle="1" title="Klik untuk meniup lilin!">
+                                <div class="relative flex items-center justify-center h-11 w-8">
+                                    <div class="candle-flame w-4.5 h-8 rounded-full"></div>
+                                    <div class="smoke-anchor absolute bottom-1"></div>
+                                </div>
+                                <div class="w-0.5 h-2.5 bg-cocoa"></div>
+                                <div class="w-4 h-16 rounded-t-sm bg-gradient-to-b from-champagne via-white to-champagne border border-goldAccent/40 shadow-sm relative overflow-hidden">
+                                    <div class="w-full h-2 bg-goldAccent/50 mt-3 rotate-12"></div>
+                                    <div class="w-full h-2 bg-goldAccent/50 mt-4 rotate-12"></div>
+                                </div>
+                            </div>
+
+                            <!-- Lilin 3 -->
+                            <div class="candle-unit flex flex-col items-center cursor-pointer group" data-candle="2" title="Klik untuk meniup lilin!">
+                                <div class="relative flex items-center justify-center h-10 w-8">
+                                    <div class="candle-flame w-4 h-7 rounded-full"></div>
+                                    <div class="smoke-anchor absolute bottom-1"></div>
+                                </div>
+                                <div class="w-0.5 h-2 bg-cocoa"></div>
+                                <div class="w-3.5 h-12 rounded-t-sm bg-gradient-to-b from-white via-blush to-softpink border border-rosegold/30 shadow-sm relative overflow-hidden">
+                                    <div class="w-full h-2 bg-rosegold/40 mt-2 -rotate-12"></div>
+                                    <div class="w-full h-2 bg-rosegold/40 mt-3 -rotate-12"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hiasan Stroberi & Krim Atas -->
+                        <div class="flex items-center justify-center gap-3 z-10 -mb-2 text-xl sm:text-2xl drop-shadow-sm">
+                            <span>🍓</span>
+                            <span class="text-base">🌸</span>
+                            <span>🍓</span>
+                            <span class="text-base">🌸</span>
+                            <span>🍓</span>
+                        </div>
+
+                        <!-- Tingkat Kue Atas (Top Tier) -->
+                        <div class="w-44 sm:w-52 h-16 sm:h-20 bg-gradient-to-r from-[#FADADD] via-[#FFF0F3] to-[#FADADD] rounded-t-2xl border-2 border-white shadow-md relative overflow-hidden z-10">
+                            <!-- Lelehan Krim Putih (Drip Frosting) -->
+                            <div class="w-full h-5 bg-white rounded-b-xl flex justify-around items-end">
+                                <div class="w-4 h-3 bg-white rounded-full translate-y-1.5"></div>
+                                <div class="w-5 h-4 bg-white rounded-full translate-y-2"></div>
+                                <div class="w-4 h-2.5 bg-white rounded-full translate-y-1"></div>
+                                <div class="w-5 h-3.5 bg-white rounded-full translate-y-2"></div>
+                                <div class="w-4 h-3 bg-white rounded-full translate-y-1.5"></div>
+                            </div>
+                            <!-- Mutiara Gula Rose Gold -->
+                            <div class="absolute bottom-2 inset-x-0 flex justify-around px-2">
+                                <span class="w-2 h-2 rounded-full bg-rosegold/60"></span>
+                                <span class="w-2 h-2 rounded-full bg-goldAccent/70"></span>
+                                <span class="w-2 h-2 rounded-full bg-rosegold/60"></span>
+                                <span class="w-2 h-2 rounded-full bg-goldAccent/70"></span>
+                                <span class="w-2 h-2 rounded-full bg-rosegold/60"></span>
+                            </div>
+                        </div>
+
+                        <!-- Tingkat Kue Bawah (Bottom Tier) -->
+                        <div class="w-64 sm:w-80 h-20 sm:h-24 bg-gradient-to-r from-[#F4C2C2] via-[#FCE4EC] to-[#F4C2C2] rounded-t-2xl border-2 border-white shadow-lg relative overflow-hidden -mt-1">
+                            <!-- Lelehan Krim Champagne -->
+                            <div class="w-full h-6 bg-[#FFFDF7] rounded-b-xl flex justify-around items-end shadow-xs">
+                                <div class="w-5 h-4 bg-[#FFFDF7] rounded-full translate-y-2"></div>
+                                <div class="w-6 h-5 bg-[#FFFDF7] rounded-full translate-y-2.5"></div>
+                                <div class="w-5 h-3 bg-[#FFFDF7] rounded-full translate-y-1.5"></div>
+                                <div class="w-6 h-4.5 bg-[#FFFDF7] rounded-full translate-y-2"></div>
+                                <div class="w-5 h-3.5 bg-[#FFFDF7] rounded-full translate-y-1.5"></div>
+                                <div class="w-6 h-4 bg-[#FFFDF7] rounded-full translate-y-2"></div>
+                            </div>
+                            <!-- Tulisan Manis di Tengah Kue -->
+                            <div class="mt-3 text-center">
+                                <span class="font-script text-xl sm:text-2xl text-rosegoldDark font-bold tracking-wide drop-shadow-xs">
+                                    Love You, Mama ♥
+                                </span>
+                            </div>
+                            <!-- Hiasan Dasar Kue -->
+                            <div class="absolute bottom-1.5 inset-x-0 flex justify-around px-3">
+                                <span class="w-2.5 h-2.5 rounded-full bg-white shadow-xs"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-champagne shadow-xs"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-white shadow-xs"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-champagne shadow-xs"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-white shadow-xs"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-champagne shadow-xs"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-white shadow-xs"></span>
+                            </div>
+                        </div>
+
+                        <!-- Piring Kue Mewah (Cake Stand) -->
+                        <div class="w-72 sm:w-96 h-4 bg-gradient-to-r from-gray-100 via-white to-gray-100 rounded-full border border-goldAccent/40 shadow-md -mt-0.5"></div>
+                        <div class="w-24 sm:w-32 h-5 bg-gradient-to-b from-gray-200 to-white rounded-b-xl shadow-sm"></div>
+                    </div>
+
+                    <!-- Pesan Perayaan Setelah Semua Lilin Padam -->
+                    <div id="celebrationBanner" class="hidden mt-5 p-5 rounded-2xl bg-gradient-to-r from-blush/80 via-white to-champagne/60 border border-rosegold/30">
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-rosegoldDark mb-2">
+                            🎉 Horeee! Yeay Selamat Ulang Tahun Mama! 🎆
+                        </h3>
+                        <p class="text-sm text-cocoa mb-4">
+                            Semoga semua harapan dan doa indah Mama dikabulkan Tuhan Yang Maha Esa. Lihat kembang apinya merayakan hari spesial Mama!
+                        </p>
+                        <button type="button" data-goto="3" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-rosegold text-white text-sm font-semibold hover:bg-rosegoldDark transition-all shadow-md cursor-pointer">
+                            <span>💌 Lanjut Baca Surat Untuk Mama</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+
+                    <!-- Navigasi Bawah Halaman 2 -->
+                    <div class="mt-6 pt-4 border-t border-rosegold/15 flex items-center justify-between">
+                        <button type="button" data-goto="1" class="px-4 py-2 rounded-full bg-white/80 hover:bg-white text-mutedCocoa hover:text-cocoa text-xs sm:text-sm font-semibold border border-softpink transition-all cursor-pointer">
+                            ← Sebelumnya
+                        </button>
+                        <button type="button" data-goto="3" class="px-5 py-2 rounded-full bg-blush hover:bg-softpink/60 text-rosegoldDark text-xs sm:text-sm font-semibold border border-rosegold/20 transition-all cursor-pointer">
+                            Halaman Surat 💌 →
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================= -->
+            <!-- HALAMAN 3: SURAT CINTA SPESIAL UNTUK MAMA                     -->
+            <!-- ============================================================= -->
+            <section id="page-3" class="wizard-page hidden page-transition px-4 py-4 max-w-2xl w-full mx-auto">
+                <div class="text-center mb-5">
+                    <span class="text-xs uppercase tracking-[0.2em] font-semibold text-rosegold">Dari Hati Yang Paling Dalam</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cocoa mt-1">Surat Cinta Untuk Mama</h2>
+                </div>
+
+                <!-- Tampilan Amplop Tertutup (Klik untuk Membuka) -->
+                <div id="envelopeCard" class="glass-panel rounded-3xl p-8 sm:p-12 text-center cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 border-2 border-white group">
+                    <div class="w-24 h-24 mx-auto mb-5 rounded-full bg-gradient-to-tr from-blush to-champagne flex items-center justify-center text-5xl shadow-inner group-hover:scale-110 transition-transform">
+                        ✉️
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cocoa mb-2">Sebuah Surat Kecil Untuk Mama</h3>
+                    <p class="text-sm text-mutedCocoa mb-6">Ketuk amplop ini untuk membuka dan membaca pesan hangat yang ditulis khusus hari ini.</p>
+                    <span class="inline-block px-6 py-3 rounded-full bg-rosegold text-white text-sm font-semibold shadow-md group-hover:bg-rosegoldDark transition-colors">
+                        Buka Surat 💌
+                    </span>
+                </div>
+
+                <!-- Kertas Surat Terbuka (Muncul Setelah Amplop Diklik) -->
+                <div id="openedLetterPaper" class="hidden letter-paper rounded-3xl p-6 sm:p-10 border border-rosegold/20 relative transition-all duration-700">
+                    <!-- Hiasan Cap Lilin / Wax Seal -->
+                    <div class="flex items-center justify-between border-b border-rosegold/20 pb-4 mb-5">
+                        <div>
+                            <p class="font-script text-2xl sm:text-3xl text-rosegold font-bold">Untuk Mama Tercinta,</p>
+                            <p id="letterDate" class="text-xs text-mutedCocoa mt-0.5">26 November 2026</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rosegold to-rosegoldDark text-white flex items-center justify-center text-xl shadow-md border-2 border-champagne" title="Dengan Penuh Cinta">
+                            ♥
+                        </div>
+                    </div>
+
+                    <!-- Isi Teks Surat (Mode Baca) -->
+                    <div id="letterReadView" class="space-y-4 text-cocoa text-sm sm:text-base leading-relaxed font-sans">
+                        <p id="p1">Selamat ulang tahun, Mama tersayang! Hari ini adalah hari perayaan untuk wanita paling hebat, paling sabar, dan paling cantik di seluruh dunia.</p>
+                        <p id="p2">Terima kasih ya Ma, untuk setiap doa yang diam-diam Mama panjatkan tiap hari.</p>
+                        <p id="p3">Maafkan kalau kadang masih suka bikin Mama repot atau khawatir. Di usia Mama yang baru ini, doa terbaik kami selalu menyertai: semoga Mama selalu diberikan kesehatan yang prima, umur panjang yang penuh berkah, hati yang selalu gembira, dan senyum manis yang tak pernah luntur.</p>
+                        <p id="p4" class="italic text-rosegoldDark font-medium">Jangan lupa istirahat yang cukup dan tetap sehat selalu ya, Ma. Kami sayang Mama, hari ini, esok, dan selamanya! 🌸✨</p>
+                    </div>
+
+                    <!-- Mode Edit Pesan Surat (Tersembunyi secara default) -->
+                    <div id="letterEditView" class="hidden space-y-3">
+                        <label class="block text-xs font-semibold text-rosegold uppercase tracking-wider">Tulis / Ubah Isi Surat Untuk Mama:</label>
+                        <textarea id="letterTextarea" rows="7" class="w-full p-4 rounded-2xl bg-white/90 border border-rosegold/40 text-cocoa text-sm sm:text-base leading-relaxed focus:outline-none focus:ring-2 focus:ring-rosegold"></textarea>
+                    </div>
+
+                    <!-- Tanda Tangan & Tombol Edit -->
+                    <div class="mt-6 pt-4 border-t border-rosegold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <p class="text-xs text-mutedCocoa">Dengan cinta tak terhingga,</p>
+                            <p id="senderSignature" class="font-script text-2xl text-rosegoldDark font-bold mt-0.5">Anakmu yang paling menyayangimu ♥</p>
+                        </div>
+
+                        <div class="flex items-center gap-2 self-end sm:self-auto">
+                            <button id="editLetterBtn" class="px-4 py-2 rounded-xl bg-blush hover:bg-softpink/60 text-rosegoldDark text-xs font-semibold transition-all flex items-center gap-1.5 border border-rosegold/20">
+                                <span>✏️</span>
+                                <span>Edit Pesan Surat</span>
+                            </button>
+                            <button id="saveLetterBtn" class="hidden px-4 py-2 rounded-xl bg-rosegold hover:bg-rosegoldDark text-white text-xs font-semibold transition-all flex items-center gap-1.5 shadow-sm">
+                                <span>💾</span>
+                                <span>Simpan Surat</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigasi Bawah Halaman 3 -->
+                <div class="mt-6 flex items-center justify-between">
+                    <button type="button" data-goto="2" class="px-4 py-2.5 rounded-full glass-panel hover:bg-white text-mutedCocoa hover:text-cocoa text-xs sm:text-sm font-semibold transition-all cursor-pointer">
+                        ← Kembali ke Kue
+                    </button>
+                    <button type="button" data-goto="4" class="px-6 py-2.5 rounded-full bg-rosegold hover:bg-rosegoldDark text-white text-xs sm:text-sm font-semibold shadow-md transition-all cursor-pointer">
+                        Lanjut ke Gelar Mama 🏆 →
+                    </button>
+                </div>
+            </section>
+
+            <!-- ============================================================= -->
+            <!-- HALAMAN 4: GALERI HARAPAN / GELAR SPESIAL & PENUTUP           -->
+            <!-- ============================================================= -->
+            <section id="page-4" class="wizard-page hidden page-transition px-4 py-4 max-w-4xl w-full mx-auto">
+                <div class="text-center mb-6">
+                    <span class="text-xs uppercase tracking-[0.2em] font-semibold text-rosegold">Kartu Penghargaan & Doa</span>
+                    <h2 class="font-serif text-3xl font-bold text-cocoa mt-1">Gelar Spesial Untuk Mama</h2>
+                    <p class="text-xs sm:text-sm text-mutedCocoa mt-1">Ketuk setiap kartu di bawah ini untuk membuka pesan manisnya ✨</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                    <!-- Kartu 1 -->
+                    <div class="flip-card h-56" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <!-- Depan -->
+                            <div class="flip-card-front glass-panel p-6 flex flex-col items-center justify-center text-center border-2 border-white">
+                                <div class="w-16 h-16 rounded-2xl bg-blush flex items-center justify-center text-3xl mb-4 shadow-xs">🤗</div>
+                                <h3 class="font-serif text-xl font-bold text-cocoa">Pelukan Terhangat di Dunia</h3>
+                                <p class="text-xs text-rosegold mt-2 font-medium">Ketuk untuk membalik ↻</p>
+                            </div>
+                            <!-- Belakang -->
+                            <div class="flip-card-back bg-gradient-to-br from-rosegold to-[#D4838F] text-white p-6 flex flex-col items-center justify-center text-center shadow-xl">
+                                <span class="text-2xl mb-2">🤍✨</span>
+                                <p class="text-sm leading-relaxed">
+                                    "Tempat pulang paling nyaman di dunia ini selalu ada di pelukan dan senyum Mama yang sanggup menenangkan segala lelah."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu 2 -->
+                    <div class="flip-card h-56" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <!-- Depan -->
+                            <div class="flip-card-front glass-panel p-6 flex flex-col items-center justify-center text-center border-2 border-white">
+                                <div class="w-16 h-16 rounded-2xl bg-champagne/60 flex items-center justify-center text-3xl mb-4 shadow-xs">🦸‍♀️</div>
+                                <h3 class="font-serif text-xl font-bold text-cocoa">Pahlawan Super Keluarga</h3>
+                                <p class="text-xs text-rosegold mt-2 font-medium">Ketuk untuk membalik ↻</p>
+                            </div>
+                            <!-- Belakang -->
+                            <div class="flip-card-back bg-gradient-to-br from-[#C88A65] to-rosegold text-white p-6 flex flex-col items-center justify-center text-center shadow-xl">
+                                <span class="text-2xl mb-2">✨🛡️</span>
+                                <p class="text-sm leading-relaxed">
+                                    "Punya radar super yang selalu tahu di mana barang hilang, dan kekuatan super yang selalu menguatkan kami di saat tersulit."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kartu 3 -->
+                    <div class="flip-card h-56" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <!-- Depan -->
+                            <div class="flip-card-front glass-panel p-6 flex flex-col items-center justify-center text-center border-2 border-white">
+                                <div class="w-16 h-16 rounded-2xl bg-softpink/40 flex items-center justify-center text-3xl mb-4 shadow-xs">🌷</div>
+                                <h3 class="font-serif text-xl font-bold text-cocoa">Sehat & Bahagia Selalu</h3>
+                                <p class="text-xs text-rosegold mt-2 font-medium">Ketuk untuk membalik ↻</p>
+                            </div>
+                            <!-- Belakang -->
+                            <div class="flip-card-back bg-gradient-to-br from-rosegoldDark to-rosegold text-white p-6 flex flex-col items-center justify-center text-center shadow-xl">
+                                <span class="text-2xl mb-2">🤲🌸</span>
+                                <p class="text-sm leading-relaxed">
+                                    "Doa kami: semoga Mama selalu sehat walafiat, awet muda, dilimpahi rezeki berkah, dan senyum manisnya tak pernah pudar!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigasi & Perayaan Penutup -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                    <button type="button" data-goto="3" class="px-5 py-2.5 rounded-full glass-panel hover:bg-white text-mutedCocoa hover:text-cocoa text-xs sm:text-sm font-semibold transition-all cursor-pointer">
+                        ← Kembali ke Surat
+                    </button>
+                    <button id="launchMoreFireworksBtn" class="px-6 py-3 rounded-full bg-gradient-to-r from-rosegold to-[#D4838F] text-white text-sm font-semibold hover:from-rosegoldDark hover:to-rosegold transition-all shadow-lg active:scale-95 cursor-pointer">
+                        🎆 Nyalakan Kembang Api Perayaan!
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer Manis -->
+        <footer class="text-center pt-4 px-4">
+            <p class="font-script text-xl sm:text-2xl text-rosegold">Dibuat dengan sepenuh cinta untuk Mama ♥</p>
+        </footer>
+    </main>
+
+    <!-- Kotak Notifikasi Pengganti Alert -->
+    <div id="toastNotification" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-full bg-cocoa text-white text-xs sm:text-sm font-medium shadow-xl opacity-0 pointer-events-none transition-all duration-300">
+        Pesan notifikasi
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- LOGIKA INTERAKTIF: AUDIO MUSIC BOX, TIUP LILIN MIC, FIREWORKS & SURAT -->
+    <!-- ===================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 0. UTILITAS NOTIFIKASI LEMBUT ---
+            const toastEl = document.getElementById('toastNotification');
+            let toastTimeout;
+            function showToast(msg) {
+                toastEl.textContent = msg;
+                toastEl.classList.remove('opacity-0', 'translate-y-2');
+                toastEl.classList.add('opacity-100', 'translate-y-0');
+                clearTimeout(toastTimeout);
+                toastTimeout = setTimeout(() => {
+                    toastEl.classList.remove('opacity-100', 'translate-y-0');
+                    toastEl.classList.add('opacity-0', 'translate-y-2');
+                }, 3200);
+            }
+
+            // --- 1. KELOPAK BUNGA & KILAU MELAYANG ---
+            const petalsContainer = document.getElementById('petalsContainer');
+            const petalShapes = ['🌸', '✨', '🌷', '💮', '♥'];
+            function createPetals() {
+                for (let i = 0; i < 22; i++) {
+                    const el = document.createElement('div');
+                    el.className = 'petal select-none';
+                    el.textContent = petalShapes[Math.floor(Math.random() * petalShapes.length)];
+                    el.style.left = Math.random() * 100 + 'vw';
+                    el.style.fontSize = (Math.random() * 12 + 12) + 'px';
+                    el.style.opacity = Math.random() * 0.5 + 0.3;
+                    el.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                    el.style.animationDelay = (Math.random() * 10) + 's';
+                    petalsContainer.appendChild(el);
+                }
+            }
+            createPetals();
+
+            // --- 2. WEB AUDIO API: MUSIC BOX "HAPPY BIRTHDAY" ---
+            let audioCtx = null;
+            let isMusicPlaying = false;
+            let melodyTimer = null;
+            let noteIndex = 0;
+
+            // Frekuensi nada (Hz) untuk lagu Happy Birthday
+            const NOTES = {
+                C4: 261.63, D4: 293.66, E4: 329.63, F4: 349.23,
+                G4: 392.00, A4: 440.00, Bb4: 466.16, C5: 523.25
+            };
+
+            const happyBirthdayMelody = [
+                { note: NOTES.C4, dur: 0.35 }, { note: NOTES.C4, dur: 0.25 },
+                { note: NOTES.D4, dur: 0.6 },  { note: NOTES.C4, dur: 0.6 },
+                { note: NOTES.F4, dur: 0.6 },  { note: NOTES.E4, dur: 1.1 },
+
+                { note: NOTES.C4, dur: 0.35 }, { note: NOTES.C4, dur: 0.25 },
+                { note: NOTES.D4, dur: 0.6 },  { note: NOTES.C4, dur: 0.6 },
+                { note: NOTES.G4, dur: 0.6 },  { note: NOTES.F4, dur: 1.1 },
+
+                { note: NOTES.C4, dur: 0.35 }, { note: NOTES.C4, dur: 0.25 },
+                { note: NOTES.C5, dur: 0.6 },  { note: NOTES.A4, dur: 0.6 },
+                { note: NOTES.F4, dur: 0.6 },  { note: NOTES.E4, dur: 0.6 },
+                { note: NOTES.D4, dur: 1.1 },
+
+                { note: NOTES.Bb4, dur: 0.35 }, { note: NOTES.Bb4, dur: 0.25 },
+                { note: NOTES.A4, dur: 0.6 },   { note: NOTES.F4, dur: 0.6 },
+                { note: NOTES.G4, dur: 0.6 },   { note: NOTES.F4, dur: 1.3 }
+            ];
+
+            function playMusicBoxNote(freq, duration) {
+                if (!audioCtx || !isMusicPlaying) return;
+                const now = audioCtx.currentTime;
+                
+                // Oscillator utama (sine lembut seperti kotak musik)
+                const osc = audioCtx.createOscillator();
+                const oscHarmonic = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, now);
+
+                // Harmonik oktav atas halus untuk efek denting music box
+                oscHarmonic.type = 'triangle';
+                oscHarmonic.frequency.setValueAtTime(freq * 2, now);
+
+                const harmonicGain = audioCtx.createGain();
+                harmonicGain.gain.setValueAtTime(0.03, now);
+                harmonicGain.gain.exponentialRampToValueAtTime(0.0001, now + duration * 0.8);
+
+                gain.gain.setValueAtTime(0.001, now);
+                gain.gain.linearRampToValueAtTime(0.14, now + 0.03);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + duration * 1.4);
+
+                osc.connect(gain);
+                oscHarmonic.connect(harmonicGain);
+                harmonicGain.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start(now);
+                oscHarmonic.start(now);
+                osc.stop(now + duration * 1.5);
+                oscHarmonic.stop(now + duration * 1.5);
+            }
+
+            function scheduleNextNote() {
+                if (!isMusicPlaying) return;
+                const item = happyBirthdayMelody[noteIndex];
+                playMusicBoxNote(item.note, item.dur);
+                noteIndex = (noteIndex + 1) % happyBirthdayMelody.length;
+                const pause = noteIndex === 0 ? 1200 : item.dur * 850;
+                melodyTimer = setTimeout(scheduleNextNote, pause);
+            }
+
+            function startMusic() {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                if (!isMusicPlaying) {
+                    isMusicPlaying = true;
+                    updateAudioUI();
+                    scheduleNextNote();
+                }
+            }
+
+            function stopMusic() {
+                isMusicPlaying = false;
+                clearTimeout(melodyTimer);
+                updateAudioUI();
+            }
+
+            const toggleAudioBtn = document.getElementById('toggleAudioBtn');
+            const audioIcon = document.getElementById('audioIcon');
+            const audioLabel = document.getElementById('audioLabel');
+
+            function updateAudioUI() {
+                if (isMusicPlaying) {
+                    audioIcon.textContent = '🎵';
+                    audioLabel.textContent = 'Musik Menyala';
+                } else {
+                    audioIcon.textContent = '🔇';
+                    audioLabel.textContent = 'Musik Mati';
+                }
+            }
+
+            toggleAudioBtn.addEventListener('click', () => {
+                if (isMusicPlaying) {
+                    stopMusic();
+                } else {
+                    startMusic();
+                }
+            });
+
+            // Efek suara letupan lembut untuk kembang api
+            function playFireworkPop() {
+                if (!audioCtx || !isMusicPlaying) return;
+                try {
+                    const now = audioCtx.currentTime;
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(160, now);
+                    osc.frequency.exponentialRampToValueAtTime(45, now + 0.25);
+
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.26);
+                } catch (e) {
+                    // Abaikan jika audio belum siap
+                }
+            }
+
+            // --- 2.5 LAYAR KUNCI SANDI RAHASIA (26111970) ---
+            const SECRET_PASS = '26111970';
+            const passwordOverlay = document.getElementById('passwordOverlay');
+            const passwordCard = document.getElementById('passwordCard');
+            const passwordForm = document.getElementById('passwordForm');
+            const secretPasswordInput = document.getElementById('secretPasswordInput');
+            const togglePasswordVisibility = document.getElementById('togglePasswordVisibility');
+            const passwordErrorMsg = document.getElementById('passwordErrorMsg');
+            const introOverlay = document.getElementById('introOverlay');
+
+            togglePasswordVisibility.addEventListener('click', () => {
+                const isHidden = secretPasswordInput.type === 'password';
+                secretPasswordInput.type = isHidden ? 'text' : 'password';
+                togglePasswordVisibility.textContent = isHidden ? '🙈' : '👁️';
+            });
+
+            passwordForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const entered = secretPasswordInput.value.trim();
+
+                if (entered === SECRET_PASS) {
+                    passwordErrorMsg.classList.add('hidden');
+                    startMusic();
+                    passwordOverlay.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+                    introOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                    showToast('💖 Kode benar! Selamat datang di kejutan spesial Mama!');
+                } else {
+                    passwordErrorMsg.classList.remove('hidden');
+                    passwordCard.classList.remove('animate-shake');
+                    void passwordCard.offsetWidth; // Trigger reflow untuk ulangi animasi
+                    passwordCard.classList.add('animate-shake');
+                    secretPasswordInput.value = '';
+                    secretPasswordInput.focus();
+                }
+            });
+
+            // --- 3. BUKA AMPLOP PEMBUKA ---
+            const mainContent = document.getElementById('mainContent');
+            const openSurpriseBtn = document.getElementById('openSurpriseBtn');
+            const audioControlWrapper = document.getElementById('audioControlWrapper');
+
+            openSurpriseBtn.addEventListener('click', () => {
+                startMusic();
+                introOverlay.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+                mainContent.classList.remove('opacity-0');
+                audioControlWrapper.classList.remove('hidden');
+                
+                // Luncurkan beberapa kembang api sambutan lembut
+                setTimeout(() => launchFireworkBurst(3), 500);
+            });
+
+            // --- 3.5 NAVIGASI ANTAR HALAMAN (STEPPER / WIZARD) ---
+            const wizardPages = document.querySelectorAll('.wizard-page');
+            const stepPills = document.querySelectorAll('.step-pill');
+
+            function goToPage(pageNumber) {
+                wizardPages.forEach(page => {
+                    page.classList.add('hidden');
+                });
+                const targetPage = document.getElementById(`page-${pageNumber}`);
+                if (targetPage) {
+                    targetPage.classList.remove('hidden');
+                    // Reset animasi masuk halaman
+                    targetPage.classList.remove('page-transition');
+                    void targetPage.offsetWidth;
+                    targetPage.classList.add('page-transition');
+                }
+
+                // Perbarui warna tab/indikator halaman aktif
+                stepPills.forEach(pill => {
+                    const isCurrent = pill.getAttribute('data-goto') === String(pageNumber);
+                    if (isCurrent) {
+                        pill.classList.add('bg-rosegold', 'text-white', 'shadow-xs');
+                        pill.classList.remove('text-mutedCocoa', 'hover:text-rosegoldDark');
+                    } else {
+                        pill.classList.remove('bg-rosegold', 'text-white', 'shadow-xs');
+                        pill.classList.add('text-mutedCocoa', 'hover:text-rosegoldDark');
+                    }
+                });
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            document.querySelectorAll('[data-goto]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-goto');
+                    goToPage(target);
+                });
+            });
+
+            // --- 4. KEMBANG API (FIREWORKS) & CONFETTI CANVAS ---
+            const canvas = document.getElementById('fireworksCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let rockets = [];
+            let fireworksActive = false;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const festiveColors = [
+                '#FF6B8B', '#FFD700', '#FF9AA2', '#FFB7B2', 
+                '#E2F0CB', '#B5EAD7', '#C7CEEA', '#F3E5AB', '#FF4D6D'
+            ];
+
+            class Particle {
+                constructor(x, y, color, isConfetti = false) {
+                    this.x = x;
+                    this.y = y;
+                    this.color = color;
+                    this.isConfetti = isConfetti;
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = isConfetti ? (Math.random() * 5 + 2) : (Math.random() * 6 + 1.5);
+                    this.vx = Math.cos(angle) * speed;
+                    this.vy = Math.sin(angle) * speed - (isConfetti ? 3 : 0);
+                    this.gravity = isConfetti ? 0.08 : 0.06;
+                    this.friction = 0.97;
+                    this.alpha = 1;
+                    this.decay = Math.random() * 0.015 + 0.01;
+                    this.size = isConfetti ? (Math.random() * 6 + 4) : (Math.random() * 2.5 + 1.5);
+                    this.rotation = Math.random() * 360;
+                    this.rotationSpeed = (Math.random() - 0.5) * 10;
+                }
+
+                update() {
+                    this.vx *= this.friction;
+                    this.vy *= this.friction;
+                    this.vy += this.gravity;
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.alpha -= this.decay;
+                    this.rotation += this.rotationSpeed;
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0, this.alpha);
+                    ctx.fillStyle = this.color;
+                    if (this.isConfetti) {
+                        ctx.translate(this.x, this.y);
+                        ctx.rotate((this.rotation * Math.PI) / 180);
+                        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 0.6);
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+            }
+
+            function createExplosion(x, y, count = 55) {
+                const baseColor = festiveColors[Math.floor(Math.random() * festiveColors.length)];
+                for (let i = 0; i < count; i++) {
+                    const color = Math.random() > 0.3 ? baseColor : festiveColors[Math.floor(Math.random() * festiveColors.length)];
+                    particles.push(new Particle(x, y, color, false));
+                }
+                playFireworkPop();
+            }
+
+            function createConfettiShower() {
+                for (let i = 0; i < 90; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * (canvas.height * 0.4);
+                    const color = festiveColors[Math.floor(Math.random() * festiveColors.length)];
+                    particles.push(new Particle(x, y, color, true));
+                }
+            }
+
+            function launchFireworkBurst(count = 5) {
+                for (let i = 0; i < count; i++) {
+                    setTimeout(() => {
+                        const x = Math.random() * (canvas.width * 0.7) + canvas.width * 0.15;
+                        const y = Math.random() * (canvas.height * 0.45) + canvas.height * 0.1;
+                        createExplosion(x, y, 65);
+                    }, i * 380);
+                }
+            }
+
+            function animateFireworks() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    particles[i].update();
+                    particles[i].draw();
+                    if (particles[i].alpha <= 0) {
+                        particles.splice(i, 1);
+                    }
+                }
+                requestAnimationFrame(animateFireworks);
+            }
+            animateFireworks();
+
+            document.getElementById('launchMoreFireworksBtn').addEventListener('click', () => {
+                launchFireworkBurst(6);
+                createConfettiShower();
+            });
+
+            // --- 5. SESI KUE & TIUP LILIN (KLIK + DETEKSI MIKROFON) ---
+            const candleUnits = document.querySelectorAll('.candle-unit');
+            const flames = document.querySelectorAll('.candle-flame');
+            const celebrationBanner = document.getElementById('celebrationBanner');
+            const relightBtn = document.getElementById('relightBtn');
+            const cakeSubInstruction = document.getElementById('cakeSubInstruction');
+            let blownCandles = [false, false, false];
+            let celebrationTriggered = false;
+
+            function spawnSmoke(candleUnit) {
+                const anchor = candleUnit.querySelector('.smoke-anchor');
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(() => {
+                        const smoke = document.createElement('div');
+                        smoke.className = 'smoke-puff';
+                        anchor.appendChild(smoke);
+                        setTimeout(() => smoke.remove(), 2000);
+                    }, i * 250);
+                }
+            }
+
+            function extinguishCandle(index) {
+                if (blownCandles[index]) return;
+                blownCandles[index] = true;
+                flames[index].classList.add('out');
+                spawnSmoke(candleUnits[index]);
+
+                // Cek jika semua lilin sudah padam
+                if (blownCandles.every(Boolean) && !celebrationTriggered) {
+                    celebrationTriggered = true;
+                    cakeSubInstruction.innerHTML = 'Semua lilin sudah ditiup! Selamat Ulang Tahun, Mama tercinta! 🎉';
+                    celebrationBanner.classList.remove('hidden');
+                    relightBtn.classList.remove('hidden');
+                    
+                    // Ledakan perayaan besar!
+                    createConfettiShower();
+                    launchFireworkBurst(8);
+                    setTimeout(() => launchFireworkBurst(5), 2500);
+                    
+                    // Matikan listener mic jika aktif agar hemat baterai
+                    stopMicDetection();
+                }
+            }
+
+            function extinguishAllCandles() {
+                candleUnits.forEach((_, idx) => {
+                    setTimeout(() => extinguishCandle(idx), idx * 120);
+                });
+            }
+
+            // Klik/Tap pada masing-masing lilin
+            candleUnits.forEach((unit, index) => {
+                unit.addEventListener('click', () => {
+                    extinguishCandle(index);
+                });
+            });
+
+            // Nyalakan kembali lilin
+            relightBtn.addEventListener('click', () => {
+                blownCandles = [false, false, false];
+                celebrationTriggered = false;
+                flames.forEach(f => f.classList.remove('out'));
+                celebrationBanner.classList.add('hidden');
+                relightBtn.classList.add('hidden');
+                cakeSubInstruction.innerHTML = 'Lilin menyala kembali! <strong>Klik api lilinnya</strong> atau <strong>tiup ke mikrofon</strong> lagi!';
+            });
+
+            // Fitur Tiup via Mikrofon (Web Audio API AnalyserNode)
+            const micBlowBtn = document.getElementById('micBlowBtn');
+            const micBtnText = document.getElementById('micBtnText');
+            const micMeterContainer = document.getElementById('micMeterContainer');
+            const micLevelBar = document.getElementById('micLevelBar');
+            let micStream = null;
+            let micAnalyser = null;
+            let micAnimFrame = null;
+            let isMicListening = false;
+
+            async function toggleMicBlow() {
+                if (isMicListening) {
+                    stopMicDetection();
+                    return;
+                }
+
+                try {
+                    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                        showToast('Browser ini belum mendukung mikrofon. Klik langsung pada api lilin ya! 🕯️');
+                        return;
+                    }
+
+                    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    const tempCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    const source = tempCtx.createMediaStreamSource(micStream);
+                    micAnalyser = tempCtx.createAnalyser();
+                    micAnalyser.fftSize = 256;
+                    source.connect(micAnalyser);
+
+                    isMicListening = true;
+                    micBtnText.textContent = 'Mikrofon Aktif (Tiuuup!)';
+                    micMeterContainer.classList.remove('hidden');
+                    showToast('🎙️ Mikrofon aktif! Tiup ke arah layar untuk memadamkan lilin!');
+
+                    const dataArray = new Uint8Array(micAnalyser.frequencyBinCount);
+
+                    function detectBlow() {
+                        if (!isMicListening) return;
+                        micAnalyser.getByteFrequencyData(dataArray);
+                        
+                        // Hitung rata-rata volume frekuensi rendah-menengah (suara tiupan angin)
+                        let sum = 0;
+                        const lowBins = 24;
+                        for (let i = 0; i < lowBins; i++) {
+                            sum += dataArray[i];
+                        }
+                        const avg = sum / lowBins;
+                        const percent = Math.min(100, Math.round((avg / 140) * 100));
+                        micLevelBar.style.width = percent + '%';
+
+                        // Ambang batas tiupan
+                        if (avg > 88) {
+                            extinguishAllCandles();
+                        }
+
+                        micAnimFrame = requestAnimationFrame(detectBlow);
+                    }
+                    detectBlow();
+
+                } catch (err) {
+                    showToast('Izin mikrofon tidak diberikan. Tenang, klik langsung pada api lilin saja ya! ✨');
+                }
+            }
+
+            function stopMicDetection() {
+                isMicListening = false;
+                if (micAnimFrame) cancelAnimationFrame(micAnimFrame);
+                if (micStream) {
+                    micStream.getTracks().forEach(track => track.stop());
+                    micStream = null;
+                }
+                micBtnText.textContent = 'Aktifkan Tiup via Mikrofon';
+                micMeterContainer.classList.add('hidden');
+                micLevelBar.style.width = '0%';
+            }
+
+            micBlowBtn.addEventListener('click', toggleMicBlow);
+
+            // --- 6. SURAT CINTA INTERAKTIF & FITUR EDIT ---
+            const envelopeCard = document.getElementById('envelopeCard');
+            const openedLetterPaper = document.getElementById('openedLetterPaper');
+            const letterReadView = document.getElementById('letterReadView');
+            const letterEditView = document.getElementById('letterEditView');
+            const letterTextarea = document.getElementById('letterTextarea');
+            const editLetterBtn = document.getElementById('editLetterBtn');
+            const saveLetterBtn = document.getElementById('saveLetterBtn');
+
+            // Tetapkan tanggal spesial ulang tahun Mama
+            document.getElementById('letterDate').textContent = 'Kamis, 26 November 2026';
+
+            envelopeCard.addEventListener('click', () => {
+                envelopeCard.classList.add('hidden');
+                openedLetterPaper.classList.remove('hidden');
+                showToast('💌 Surat cinta untuk Mama terbuka!');
+            });
+
+            editLetterBtn.addEventListener('click', () => {
+                // Ambil seluruh paragraf dari mode baca ke textarea
+                const paragraphs = Array.from(letterReadView.querySelectorAll('p'))
+                    .map(p => p.textContent.trim())
+                    .join('\n\n');
+                letterTextarea.value = paragraphs;
+
+                letterReadView.classList.add('hidden');
+                letterEditView.classList.remove('hidden');
+                editLetterBtn.classList.add('hidden');
+                saveLetterBtn.classList.remove('hidden');
+                letterTextarea.focus();
+            });
+
+            saveLetterBtn.addEventListener('click', () => {
+                const updatedLines = letterTextarea.value
+                    .split(/\n+/)
+                    .map(line => line.trim())
+                    .filter(line => line.length > 0);
+
+                if (updatedLines.length === 0) {
+                    showToast('Isi surat tidak boleh kosong ya!');
+                    return;
+                }
+
+                // Render ulang paragraf yang sudah diedit
+                letterReadView.innerHTML = '';
+                updatedLines.forEach((text, index) => {
+                    const p = document.createElement('p');
+                    p.textContent = text;
+                    if (index === updatedLines.length - 1) {
+                        p.className = 'italic text-rosegoldDark font-medium';
+                    }
+                    letterReadView.appendChild(p);
+                });
+
+                letterEditView.classList.add('hidden');
+                letterReadView.classList.remove('hidden');
+                saveLetterBtn.classList.add('hidden');
+                editLetterBtn.classList.remove('hidden');
+                showToast('✨ Pesan surat untuk Mama berhasil diperbarui!');
+            });
+        });
+    </script>
+</body>
+</html>
