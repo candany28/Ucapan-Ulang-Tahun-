@@ -37,14 +37,14 @@
     </script>
 
     <style>
-        /* Kustomisasi Gaya & Animasi */
+        
         body {
             background: linear-gradient(135deg, #FFF9F5 0%, #FCE4EC 50%, #FFF5EE 100%);
             color: #4A3538;
             overflow-x: hidden;
         }
 
-        /* Animasi Melayang Kelopak Bunga & Kilau */
+        
         @keyframes floatPetal {
             0% {
                 transform: translateY(-10vh) rotate(0deg) translateX(0px);
@@ -70,7 +70,7 @@
             animation: floatPetal linear infinite;
         }
 
-        /* Animasi Api Lilin Realistis */
+        
         @keyframes flicker {
             0%, 100% {
                 transform: scale(1) rotate(-2deg);
@@ -101,7 +101,7 @@
             pointer-events: none;
         }
 
-        /* Animasi Asap Lilin Setelah Padam */
+        
         @keyframes smokeRise {
             0% {
                 opacity: 0.8;
@@ -127,7 +127,7 @@
             animation: smokeRise 2s ease-out forwards;
         }
 
-        /* Animasi Detak Hati / Pulse Lembut */
+        
         @keyframes gentlePulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.04); }
@@ -136,7 +136,7 @@
             animation: gentlePulse 3s infinite ease-in-out;
         }
 
-        /* Efek Kartu Flip 3D untuk Galeri Harapan */
+        
         .flip-card {
             perspective: 1000px;
             cursor: pointer;
@@ -163,7 +163,7 @@
             transform: rotateY(180deg);
         }
 
-        /* Tekstur Kertas Surat Mewah */
+        
         .letter-paper {
             background-color: #FFFDF9;
             background-image: 
@@ -173,7 +173,7 @@
             box-shadow: 0 20px 50px -12px rgba(183, 110, 121, 0.25);
         }
 
-        /* Animasi Amplop Terbuka */
+        
         .envelope-flap {
             transform-origin: top;
             transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
@@ -183,7 +183,7 @@
             z-index: 0;
         }
 
-        /* Glassmorphism Card */
+        
         .glass-panel {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
@@ -192,7 +192,7 @@
             box-shadow: 0 15px 35px rgba(183, 110, 121, 0.12);
         }
 
-        /* Animasi Getar Halus Saat Sandi Salah */
+        
         @keyframes gentleShake {
             0%, 100% { transform: translateX(0); }
             20%, 60% { transform: translateX(-8px); }
@@ -202,7 +202,7 @@
             animation: gentleShake 0.45s ease-in-out;
         }
 
-        /* Transisi Antar Halaman Bertahap */
+        
         @keyframes pageFadeIn {
             from {
                 opacity: 0;
@@ -724,7 +724,7 @@
                 }, 3200);
             }
 
-            // --- 1. KELOPAK BUNGA & KILAU MELAYANG ---
+            
             const petalsContainer = document.getElementById('petalsContainer');
             const petalShapes = ['🌸', '✨', '🌷', '💮', '♥'];
             function createPetals() {
@@ -1237,7 +1237,7 @@
             const editLetterBtn = document.getElementById('editLetterBtn');
             const saveLetterBtn = document.getElementById('saveLetterBtn');
 
-            // Tetapkan tanggal spesial ulang tahun Mama
+            
             document.getElementById('letterDate').textContent = 'Kamis, 26 November 2026';
 
             envelopeCard.addEventListener('click', () => {
@@ -1247,7 +1247,7 @@
             });
 
             editLetterBtn.addEventListener('click', () => {
-                // Ambil seluruh paragraf dari mode baca ke textarea
+                
                 const paragraphs = Array.from(letterReadView.querySelectorAll('p'))
                     .map(p => p.textContent.trim())
                     .join('\n\n');
@@ -1271,7 +1271,7 @@
                     return;
                 }
 
-                // Render ulang paragraf yang sudah diedit
+                
                 letterReadView.innerHTML = '';
                 updatedLines.forEach((text, index) => {
                     const p = document.createElement('p');
